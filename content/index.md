@@ -3,6 +3,13 @@ type: Page
 title: Home Page
 slug: /
 ---
+## How to use
+
+1.  Open terminal and enter: `npm run serve`
+2.  Open another terminal and enter: `stackbit dev`
+3.  Open 11ty browser tab and enter: <http://localhost:3000>
+4.  Open Visual Editer browser tab and enter: <http://localhost:8090/_stackbit>
+
 Hello from the **Home Page**.
 
 ## Folder Structure
@@ -14,11 +21,7 @@ Hello from the **Home Page**.
     *   / [hello](/pages/hello)
     *   / [ve](/pages/ve)
 
-## Visual Editor
-
-*   <a href="http://localhost:8090/_stackbit" target="_blank"><http://localhost:8090/\\_stackbit></a>
-
 ### Now Shortcode
 
-Usage: {% now %}
+Usage: {% now %} 
 Result: {% now %}

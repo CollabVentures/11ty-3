@@ -15,4 +15,4 @@ slug: /pages/test/nested/
 
 ## test content
 
-**2024-10-09: 13:06**
+Now: {% now %}  

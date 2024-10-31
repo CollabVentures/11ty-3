@@ -4,7 +4,24 @@ import { GitContentSource } from "@stackbit/cms-git";
 export default defineStackbitConfig({
   stackbitVersion: "~0.6.0",
   ssgName: "eleventy",
-  devCommand: "npx @11ty/eleventy --serve --port 3000",
+  nodeVersion: "18",
+
+  // Eleventy to run inside Visual Editor container
+  devCommand: "npx @11ty/eleventy --serve --port {PORT}",
+
+  // Eleventy-specific configuration
+  experimental: {
+    ssg: {
+      proxyWebsockets: true,
+      logPatterns: {
+        up: ["Server at"],
+      },
+    },
+  },
+
+  // Specific option to prevent Visual Editor to interfere with page reload mechanism of Eleventy
+  customContentReload: true,
+
   contentSources: [
     new GitContentSource({
       rootPath: __dirname,
