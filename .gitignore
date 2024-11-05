@@ -6,3 +6,5 @@ _ignore_this
 # Local Netlify folder
 .netlify
 _site
+_ignore_this
+.stackbit

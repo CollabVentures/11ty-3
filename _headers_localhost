@@ -1,0 +1,2 @@
+\*
+Content-Security-Policy: frame-src 'self' http://localhost; script-src 'self' https://create.netlify.com http://localhost; script-src-elem 'self' https://create.netlify.com 'unsafe-inline' http://localhost; style-src 'self' https://create.netlify.com 'unsafe-inline' http://localhost; style-src-elem 'self' http://localhost

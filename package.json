@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "serve": "npx @11ty/eleventy --serve",
+    "serve8080": "npx @11ty/eleventy --serve",
+    "serve": "npx @11ty/eleventy --serve --port=3000",
+    "dev": "netlify dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {
-    "@11ty/eleventy": "^3.0.0-beta.1"
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@stackbit/cms-git": "^1.0.20",
+    "@stackbit/types": "^2.1.4"
   }
 }
