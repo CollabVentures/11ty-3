@@ -41,7 +41,7 @@ export default defineStackbitConfig({
       ],
       assetsConfig: {
         referenceType: "static",
-        staticDir: "_site",
+        staticDir: "_visual_editor",
         uploadDir: "dist/images",
         publicPath: "/",
       },

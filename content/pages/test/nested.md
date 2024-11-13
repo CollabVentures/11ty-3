@@ -15,5 +15,6 @@ slug: /pages/test/nested/
 
 ## test content
 
-Now:  {% now %} 
+Now:  {% now %}
 
+Last edit: 7:50
