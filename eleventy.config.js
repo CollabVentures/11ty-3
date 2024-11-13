@@ -32,7 +32,7 @@ export default async function (eleventyConfig) {
   return {
     dir: {
       input: "content",
-      output: "_site",
+      output: "_visual_editor",
       includes: "_includes",
       layouts: "_layouts",
       markdownTemplateEngine: "njk",
