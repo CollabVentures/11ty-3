@@ -15,5 +15,4 @@ slug: /pages/test/nested/
 
 ## test content
 
-- Now:  {% now %}
-
+-   Now:  {% now %}  
