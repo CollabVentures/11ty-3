@@ -23,5 +23,5 @@ Hello from the **Home Page**.
 
 ### Now Shortcode
 
-Usage: {% raw %} {% now %} {% endraw %}  
-Result: {% now %}
+- Usage: {% raw %} {% now %} {% endraw %}\
+- Result: {% now %}

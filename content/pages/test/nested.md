@@ -13,8 +13,10 @@ slug: /pages/test/nested/
 
 *   / pages/test/nested
 
-## test content
+## test shortcodes
 
-Now:  {% now %}
+*   Now:  {% now %}
+*   json: 
+*   {% set items = \["a", 1, { b : true}] %}
+*   {{ items | dump(2) }}
 
-Last edit: 7:50

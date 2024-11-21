@@ -1,6 +1,9 @@
 export default async function (eleventyConfig) {
-  // Copy `dist/` to `_site/dist`
-  eleventyConfig.addPassthroughCopy("dist");
+  // Copy the contents of the `public` folder to the output folder
+  // For example, `./public/css/` ends up in `_site/css/`
+  eleventyConfig.addPassthroughCopy({
+    "./public/": "/",
+  });
 
   // Copy '_headers' to '_site/_headers' which is used by netlify dev and Visua Editor
   eleventyConfig.addPassthroughCopy("_headers");
@@ -32,7 +35,7 @@ export default async function (eleventyConfig) {
   return {
     dir: {
       input: "content",
-      output: "_visual_editor",
+      output: "_site",
       includes: "_includes",
       layouts: "_layouts",
       markdownTemplateEngine: "njk",
