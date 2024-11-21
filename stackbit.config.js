@@ -40,7 +40,7 @@ export default defineStackbitConfig({
         },
         {
           name: "Term",
-          type: "term",
+          type: "page",
           urlPath: "/{slug}",
           filePath: "content/terms/{slug}.md",
           fields: [
@@ -52,12 +52,12 @@ export default defineStackbitConfig({
               type: "enum",
               required: true,
               options: [
-                { label: "0", value: "Draft" },
-                { label: "1", value: "Review" },
-                { label: "2", value: "Approved" },
-                { label: "9", value: "Archived" },
+                { label: "Draft", value: 1 },
+                { label: "Review", value: 2 },
+                { label: "Approved", value: 3 },
+                { label: "Archived", value: 9 },
               ],
-              default: "en",
+              default: 1,
             },
           ],
         },
