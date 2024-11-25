@@ -1,4 +1,4 @@
-import { defineStackbitConfig } from "@stackbit/types";
+import { defineStackbitConfig, PageModel } from "@stackbit/types";
 import { GitContentSource } from "@stackbit/cms-git";
 
 export default defineStackbitConfig({
@@ -33,8 +33,60 @@ export default defineStackbitConfig({
           urlPath: "/{slug}",
           filePath: "content/pages/{slug}.md",
           fields: [
-            { name: "title", type: "string", required: true },
-            { name: "slug", type: "slug", required: true, default: "{slug}" },
+            {
+              name: "title",
+              type: "string",
+              required: true,
+              actions: [
+                {
+                  name: "slugify-title",
+                  label: "Slugify Title",
+                  run: async (options) => {
+                    const document = options.currentPageDocument;
+                    if (!document) return;
+
+                    const logger = options.getLogger();
+                    logger.debug(
+                      `Running slugify-title action on page: ${document.id}`
+                    );
+
+                    const currentTitleField = document.fields.title;
+                    if (!currentTitleField || !("value" in currentTitleField))
+                      return;
+
+                    // Convert title to slug
+                    const slug = currentTitleField.value
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")
+                      .replace(/[^\w\-]+/g, "")
+                      .replace(/\-\-+/g, "-")
+                      .replace(/^-+/, "")
+                      .replace(/-+$/, "");
+
+                    // Update the slug field
+                    options.contentSourceActions.updateDocument({
+                      document,
+                      userContext: options.getUserContextForContentSourceType(
+                        options.parentDocument.srcType
+                      ),
+                      operations: [
+                        {
+                          opType: "set",
+                          fieldPath: ["slug"],
+                          modelField: options.model.fields.find(
+                            (field) => field.name === "slug"
+                          ),
+                          field: { type: "slug", value: slug },
+                        },
+                      ],
+                    });
+
+                    logger.debug("Finished slugify-title action");
+                  },
+                },
+              ],
+            },
+            // { name: "slug", type: "slug", required: true, default: "{slug}" },
             { name: "markdown_content", type: "markdown", required: true },
           ],
         },
